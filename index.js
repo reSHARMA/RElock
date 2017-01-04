@@ -34,6 +34,7 @@ var server = net.createServer(function (conn) {
 });
 
 // Listen for connections
-server.listen(61337, "localhost", function () {
-    console.log("Server: Listening");
+app.listen(3000,function(){
+  console.log("started listening on port 3000 ....");
+});
 });
