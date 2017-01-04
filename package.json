@@ -1,0 +1,26 @@
+{
+  "name": "RElock",
+  "version": "1.0.0",
+  "description": "server side stuff",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    
+    "express": "4.13.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reSHARMA/RElock"
+  },
+  "keywords": [
+    "node",
+    
+    "express"
+  ],
+  "license": "MIT"
+}
