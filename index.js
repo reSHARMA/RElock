@@ -1,5 +1,11 @@
+var express = require("express"); 
+var app = express();
 const net = require("net");
+// let's see wether this thing works or not :P
 
+app.get("/", function(request, response) { response.send("Hello, world!");
+                                          
+});
 // Create a simple server
 var server = net.createServer(function (conn) {
     console.log("Server: Client connected");
