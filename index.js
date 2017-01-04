@@ -7,7 +7,7 @@ app.get("/", function(request, response) { response.send("Hello, world!");
                                           
 });
 // Create a simple server
-var server = net.createServer(function (conn) {
+/* var server = net.createServer(function (conn) {
     console.log("Server: Client connected");
 
     // If connection is closed
@@ -24,7 +24,7 @@ var server = net.createServer(function (conn) {
         data = JSON.parse(data);
         console.log("Response from client: %s", data.response);
     });
-
+*/
     // Let's response with a hello message
     conn.write(
         JSON.stringify(
