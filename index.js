@@ -1,6 +1,6 @@
 var express = require("express"); 
 var app = express();
-const net = require("net");
+//const net = require("net");
 // let's see wether this thing works or not :P
 
 app.get("/", function(request, response) { response.send("Hello, world!");
@@ -24,7 +24,7 @@ app.get("/", function(request, response) { response.send("Hello, world!");
         data = JSON.parse(data);
         console.log("Response from client: %s", data.response);
     });
-*/
+
     // Let's response with a hello message
     conn.write(
         JSON.stringify(
@@ -32,7 +32,7 @@ app.get("/", function(request, response) { response.send("Hello, world!");
         )
     );
 });
-
+*/
 // Listen for connections
 app.listen(3000,function(){
   console.log("started listening on port 3000 ....");
