@@ -9,6 +9,6 @@ app.get("/", function(request, response) { response.send("Hello, world!");
   
 
 app.listen(process.env.PORT,function(){
-  console.log("started listening on port 3000 ....");
+  console.log("started listening on port " + process.env.PORT);
 });
 
