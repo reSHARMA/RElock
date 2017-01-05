@@ -22,4 +22,4 @@ if(data=="locked") {console.log("locking...."); client.emit('status',"locked"); 
 else if(data=="unlocked"){ console.log("unlocking ...."); client.emit('status',"unlocked");}
 });
 });
-server.listen(process.env.port);
+server.listen(process.env.PORT);
