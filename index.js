@@ -1,14 +1,29 @@
-var express = require("express");
+var express = require ('express');
 var app = express();
+var server = require ('http').createServer(app);
+var io = require('socket.io')(server);
 
-// Set up a URL route
-app.get("/", function(req, res) {
- res.send("Heroku Demo!");
+app.get('/',function(req,res){
+	res.send("Server running ...")
+
 });
+io.on('connection', function(client) {  
+   
 
-// bind the app to listen for connections on a specified port
+    client.on('client', function(data) {
+        console.log(data);
+client.emit("client","connection successfully established");
+    });
+
+
+
+client.on('work',function(data){
+if(data=="locked") {console.log("locking...."); client.emit('status',"locked"); }
+else if(data=="unlocked"){ console.log("unlocking ...."); client.emit('status',"unlocked");}
+});
+});
 var port = process.env.PORT || 3000;
-app.listen(port);
+server.listen(3000);
 
-// Render some console log output
-console.log("Listening on port " + port);
+
+
