@@ -8,7 +8,7 @@ app.get('/',function(req,res){
 
 });
 io.on('connection', function(client) {  
-   pi.on('remote',function(data){
+   client.on('remote',function(data){
 			client.emit('remote',data);
 		});
 
