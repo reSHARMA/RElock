@@ -8,9 +8,7 @@ app.get('/',function(req,res){
 
 });
 io.on('connection', function(client) {  
-   client.on('remote',function(data){
-			client.emit('remote',data);
-		});
+ 
 
     client.on('client', function(data) {
         console.log(data);
@@ -23,7 +21,9 @@ client.emit("client","connection successfully established");
 	    });
     });
 
-
+  client.on('remote',function(data){
+			client.emit('remote',data);
+		});
 
 client.on('work',function(data){
 if(data=="locked") {console.log("locking...."); client.emit('status',"locked"); }
