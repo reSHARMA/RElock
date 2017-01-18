@@ -15,7 +15,7 @@ io.on('connection', function(client) {
 client.emit("client","connection successfully established");
 	    io.on('connection',function(pi){
 		    console.log("pi connected ... ");
-	    	
+	    	pi.emit("status",'test');
 			client.emit('remote','connected successfully ');
 		
 	    });
