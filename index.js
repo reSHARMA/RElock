@@ -33,6 +33,7 @@ client.on('error',function(data){
 
 	    io.on('connection',function(pi){
 		       // server-client 
+		    	pi.emit('remote',pii);
 			pi.on('client', function(data) {
         		console.log(data+'2');
 			pi.emit("client","connection successfully established");
