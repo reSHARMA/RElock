@@ -48,7 +48,7 @@ client.on('error',function(data){
 			pi.emit('remote',pii);
 			});
 		    	client.on('stat',function(data){
-			client.emit('stat',data);
+			pi.emit('stat',data);
 			console.log(data);
 			});
 		        pi.on('status',function(data){
