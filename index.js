@@ -30,7 +30,7 @@ client.on('work',function(data){
 console.log(data+"ing...."); client.emit('pi',data);  
 });
 client.on('error',function(data){
-	alert(data);
+	client.emit('error',data);
 });
 //server-client closed ...
 //server-pi
@@ -59,7 +59,7 @@ client.on('error',function(data){
                         console.log(data+"ing...."); client.emit('pi',data);  
                         });
 		    	pi.on('error',function(data){
-	                alert(data);
+	                pi.emit('error',data);
 			});
 			//server-client closed ...
 	    });
