@@ -10,13 +10,13 @@ app.get('/',function(req,res){
 io.on('connection', function(client) {  
 // server-client 
 client.on('client', function(data) {
-        console.log(data);
+        console.log(data+'1');
 client.emit("client","connection successfully established");
  });
 client.on('remote',function(data){
 		pii=data;
 		client.emit('remote',pii);
-		console.log(data);
+		console.log(data+'1');
 });
 client.on('status',function(data){
 		client.emit('status',data);
@@ -34,12 +34,13 @@ client.on('error',function(data){
 	    io.on('connection',function(pi){
 		       // server-client 
 			pi.on('client', function(data) {
-        		console.log(data);
+        		console.log(data+'2');
 			pi.emit("client","connection successfully established");
 			 });
 			pi.on('remote',function(data){
-			console.log(data);
+			console.log(data+'2');
 			client.emit('remote',pii);
+			pi.emit('remote',pii);
 			});
 		        pi.on('status',function(data){
 			console.log(data);
