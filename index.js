@@ -2,7 +2,7 @@ var express = require ('express');
 var app = express();
 var server = require ('http').createServer(app);
 var io = require('socket.io')(server);
-
+var pii="not connected ...";
 app.get('/',function(req,res){
 	res.send("Server running ...")
 
@@ -14,7 +14,8 @@ client.on('client', function(data) {
 client.emit("client","connection successfully established");
  });
 client.on('remote',function(data){
-		client.emit('remote',data);
+		pii=data;
+		client.emit('remote',pii);
 		console.log(data);
 });
 client.on('status',function(data){
@@ -38,7 +39,7 @@ client.on('error',function(data){
 			 });
 			pi.on('remote',function(data){
 			console.log(data);
-			pi.emit('remote',data);
+			client.emit('remote',pii);
 			});
 		        pi.on('status',function(data){
 			console.log(data);
