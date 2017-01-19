@@ -8,7 +8,7 @@ app.get('/',function(req,res){
 
 });
 io.on('connection', function(client) {  
- 
+ client.emit("stat",'test');
 
     client.on('client', function(data) {
         console.log(data);
