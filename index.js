@@ -15,9 +15,11 @@ client.emit("client","connection successfully established");
  });
 client.on('remote',function(data){
 		client.emit('remote',data);
+		console.log(data);
 });
 client.on('status',function(data){
 		client.emit('status',data);
+		console.log(data);
 });
 client.on('work',function(data){
 console.log(data+"ing...."); client.emit('pi',data);  
@@ -35,9 +37,11 @@ client.on('error',function(data){
 			client.emit("client","connection successfully established");
 			 });
 			client.on('remote',function(data){
+			console.log(data);
 			client.emit('remote',data);
 			});
 		        client.on('status',function(data){
+			console.log(data);
 		        client.emit('status',data);
                         });
 			client.on('work',function(data){
