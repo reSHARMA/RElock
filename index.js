@@ -8,27 +8,46 @@ app.get('/',function(req,res){
 
 });
 io.on('connection', function(client) {  
- client.emit("stat",'test');
-
-    client.on('client', function(data) {
+// server-client 
+client.on('client', function(data) {
         console.log(data);
 client.emit("client","connection successfully established");
-	    io.on('connection',function(pi){
-		    console.log("pi connected ... ");
-	    	pi.emit("stat",'test');
-			client.emit('remote','connected successfully ');
-		
-	    });
-    });
-
-  client.on('remote',function(data){
-			client.emit('remote',data);
-		});
-
-client.on('work',function(data){
-if(data=="locked") {console.log("locking...."); client.emit('status',"locked"); }
-else if(data=="unlocked"){ console.log("unlocking ...."); client.emit('status',"unlocked");}
+ });
+client.on('remote',function(data){
+		client.emit('remote',data);
 });
+client.on('status',function(data){
+		clent.emit('status',data);
+});
+client.on('work',function(data){
+console.log(data+"ing...."); client.emit('pi',data);  
+});
+client.on('error',function(data){
+	alert(data);
+});
+//server-client closed ...
+//server-pi
+
+	    io.on('connection',function(pi){
+		       // server-client 
+			client.on('client', function(data) {
+        		console.log(data);
+			client.emit("client","connection successfully established");
+			 });
+			client.on('remote',function(data){
+			client.emit('remote',data);
+			});
+		        client.on('status',function(data){
+		        client.emit('status',data);
+                        });
+			client.on('work',function(data){
+                        console.log(data+"ing...."); client.emit('pi',data);  
+                        });
+		    	client.on('error',function(data){
+	                alert(data);
+			});
+			//server-client closed ...
+	    });
 });
 var port = process.env.PORT || 3000;
 server.listen(port);
