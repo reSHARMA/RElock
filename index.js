@@ -32,22 +32,22 @@ client.on('error',function(data){
 
 	    io.on('connection',function(pi){
 		       // server-client 
-			client.on('client', function(data) {
+			pi.on('client', function(data) {
         		console.log(data);
-			client.emit("client","connection successfully established");
+			pi.emit("client","connection successfully established");
 			 });
-			client.on('remote',function(data){
+			pi.on('remote',function(data){
 			console.log(data);
-			client.emit('remote',data);
+			pi.emit('remote',data);
 			});
-		        client.on('status',function(data){
+		        pi.on('status',function(data){
 			console.log(data);
-		        client.emit('status',data);
+		        pi.emit('status',data);
                         });
-			client.on('work',function(data){
+			pi.on('work',function(data){
                         console.log(data+"ing...."); client.emit('pi',data);  
                         });
-		    	client.on('error',function(data){
+		    	pi.on('error',function(data){
 	                alert(data);
 			});
 			//server-client closed ...
