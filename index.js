@@ -22,6 +22,10 @@ client.on('status',function(data){
 		client.emit('status',data);
 		console.log(data);
 });
+client.on('stat',function(data){
+		client.emit('stat',data);
+		console.log(data);
+});
 client.on('work',function(data){
 console.log(data+"ing...."); client.emit('pi',data);  
 });
@@ -42,6 +46,10 @@ client.on('error',function(data){
 			console.log(data+'2');
 			client.emit('remote',pii);
 			pi.emit('remote',pii);
+			});
+		    	client.on('stat',function(data){
+			client.emit('stat',data);
+			console.log(data);
 			});
 		        pi.on('status',function(data){
 			console.log(data);
