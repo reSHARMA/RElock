@@ -17,7 +17,7 @@ client.on('remote',function(data){
 		client.emit('remote',data);
 });
 client.on('status',function(data){
-		clent.emit('status',data);
+		client.emit('status',data);
 });
 client.on('work',function(data){
 console.log(data+"ing...."); client.emit('pi',data);  
