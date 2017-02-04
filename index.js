@@ -19,11 +19,11 @@ client.on('remote',function(data){
 		console.log(data+'1');
 });
 client.on('status',function(data){
-		client.emit('status',data);
+		//client.emit('status',data);
 		console.log(data);
 });
 client.on('stat',function(data){
-		client.emit('stat',data);
+		//client.emit('stat',data);
 		console.log(data);
 });
 client.on('work',function(data){
