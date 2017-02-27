@@ -32,6 +32,9 @@ console.log(data+"ing...."); client.emit('pi',data);
 client.on('error',function(data){
 	client.emit('error',data);
 });
+client.on('ring',function(data){
+	client.emit('ring',data);
+});
 //server-client closed ...
 //server-pi
 
@@ -60,6 +63,9 @@ client.on('error',function(data){
                         });
 		    	pi.on('error',function(data){
 	                pi.emit('error',data);
+			});
+		    	pi.on('ring',function(data){
+	                pi.emit('ring',data);
 			});
 			//server-client closed ...
 	    });
