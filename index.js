@@ -33,6 +33,7 @@ client.on('error',function(data){
 	client.emit('error',data);
 });
 client.on('ring',function(data){
+	console.log(data);
 	client.emit('ring',data);
 });
 //server-client closed ...
@@ -65,7 +66,8 @@ client.on('ring',function(data){
 	                pi.emit('error',data);
 			});
 		    	pi.on('ring',function(data){
-	                pi.emit('ring',data);
+	                console.log(data);
+			pi.emit('ring',data);
 			});
 			//server-client closed ...
 	    });
